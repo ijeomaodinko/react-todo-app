@@ -11,7 +11,13 @@ class TodoItem extends React.Component {
           editing: true,
         })
       }
-
+      
+      handleUpdatedDone = event => {
+          if (event.key === "Enter") {
+            this.setState({ editing: false })
+          }
+        }
+        
     render (){
         const completedStyle = {
             fontStyle: "italic",
@@ -29,6 +35,7 @@ class TodoItem extends React.Component {
         } else {
         editMode.display = "none"
         }
+
 
     return (   <li className={styles.item}>
     <div onDoubleClick={this.handleEditing} style={viewMode}>
